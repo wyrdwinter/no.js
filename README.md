@@ -6,7 +6,7 @@ a [certain NWN server's](https://sinfar.net/) web interface.
 ## How do I install this?
 
 Install the Tampermonkey extension for your browser. Open it. Create a new
-userscript, select everything there, and paste [the code](https://raw.githubusercontent.com/wyrdwinter/no.js/main/no.js) atop it.
+userscript, select everything there, and paste [the code](https://raw.githubusercontent.com/wyrdwinter/no.js/master/no.js) atop it.
 
 Give it a name. Save. Done.
 
