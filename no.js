@@ -14,7 +14,8 @@
 
     const channels = [
         '.chat-channel-132', // FFA
-        '.chat-channel-104' // Event
+        '.chat-channel-104', // Event
+        '.chat-channel-164' // OOC
     ]
 
     const observer = new MutationObserver((mutations) => {
