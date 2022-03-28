@@ -10,37 +10,38 @@
 // ==/UserScript==
 
 (function () {
-    'use strict'
+  'use strict'
 
-    const channels = [
-        '.chat-channel-132', // FFA
-        '.chat-channel-104', // Event
-        '.chat-channel-164' // OOC
-    ]
+  const channels = [
+    '.chat-channel-132', // FFA
+    '.chat-channel-104', // Event
+    '.chat-channel-164', // OOC
+    '.chat-channel-116' // Action
+  ]
 
-    const observer = new MutationObserver((mutations) => {
-        for (const m of mutations) {
-            if (m.type === 'childList') {
-                for (const post of m.addedNodes) {
-                    if (post.nodeName === 'TR') {
-                        for (const channel of channels) {
-                            if (post.querySelectorAll(channel).length > 0) {
-                                // hide this shit
-                                post.style.display = 'none'
+  const observer = new MutationObserver((mutations) => {
+    for (const m of mutations) {
+      if (m.type === 'childList') {
+        for (const post of m.addedNodes) {
+          if (post.nodeName === 'TR') {
+            for (const channel of channels) {
+              if (post.querySelectorAll(channel).length > 0) {
+                // hide this shit
+                post.style.display = 'none'
 
-                                // quell the title alert; reference sinfar js
-                                window.windowActive = false
-                                window.stopAlertMsg()
-                            }
-                        }
-                    }
-                }
+                // quell the title alert; reference sinfar js
+                window.windowActive = false
+                window.stopAlertMsg()
+              }
             }
+          }
         }
-    })
+      }
+    }
+  })
 
-    observer.observe(document.querySelector('#table-chat-messages'), {
-        childList: true,
-        subtree: true
-    })
+  observer.observe(document.querySelector('#table-chat-messages'), {
+    childList: true,
+    subtree: true
+  })
 })()
